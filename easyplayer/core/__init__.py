@@ -1,0 +1,3 @@
+"""
+Easy Player core module.
+"""
