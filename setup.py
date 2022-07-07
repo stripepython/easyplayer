@@ -4,11 +4,11 @@ with open('README.md', 'r', encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='fastgame',
-    author_email='13513519246@139.com',
+    name='easyplayer',
+    author_email='stripe-python@139.com',
     author='stripe-python',
     maintainer='stripe-python',
-    maintainer_email='13513519246@139.com',
+    maintainer_email='stripe-python@139.com',
     py_modules=find_packages(),
     version='0.1.1',
     description='Easyplayer is a python library that encapsulates the complex API of pygame2 to help users build games faster.',
@@ -25,4 +25,6 @@ setup(
                       'pinyin2hanzi~=0.1.1', 'pyttsx3~=2.90', 'future~=0.18.2',
                       'dataclasses~=0.6'],
     python_requires='>=3.6',
+    url='https://github.com/stripepython/easyplayer',
+    download_url='https://github.com/stripepython/easyplayer',
 )
