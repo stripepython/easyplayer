@@ -10,7 +10,7 @@ setup(
     maintainer='stripe-python',
     maintainer_email='13513519246@139.com',
     py_modules=find_packages(),
-    version='1.3.0',
+    version='0.1.1',
     description='Easyplayer is a python library that encapsulates the complex API of pygame2 to help users build games faster.',
     long_description=long_description,
     long_description_content_type='text/markdown',
