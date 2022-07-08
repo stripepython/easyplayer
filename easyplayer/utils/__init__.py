@@ -1,4 +1,3 @@
 """
-Easy Player加强功能包
-包含音频播放包、截图包和计时器包。
+Easy Player tools module.
 """
