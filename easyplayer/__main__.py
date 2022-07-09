@@ -16,7 +16,7 @@ from easyplayer.utils.mblock import clear, install
 def _show_version(ctx, _, value):
     if not value or ctx.resilient_parsing:
         return
-    click.echo(version.get_string())
+    click.echo(str(version))
     ctx.exit()
     
     
