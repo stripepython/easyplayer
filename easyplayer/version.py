@@ -26,7 +26,7 @@ class _Version(tuple):
         return f'{self.major}.{self.minor}.{self.micro}'
     
     
-version = _Version(0, 1, 1)
+version = _Version(0, 1, 2)
 major = version.major
 minor = version.minor
 micro = version.micro

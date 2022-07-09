@@ -99,9 +99,6 @@ else:
         def _raise():
             raise EasyPlayerOSError('Only supported Windows OS')
         
-        def __init__(self, *_, **__):
-            self._raise()
-            
         def __getattr__(self, item):
             self._raise()
     
