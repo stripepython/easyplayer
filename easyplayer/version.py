@@ -8,27 +8,21 @@ Such as:
 >>> if ep.version.major != 0:
 >>>     raise SystemExit('Version wrong.')
 """
-from dataclasses import dataclass
 
-__all__ = ['version', 'major', 'minor', 'micro', 'vernum', 'verstr']
+from typing import Tuple
+
+__all__ = ['version']
 
 
-@dataclass()
 class _Version(tuple):
-    major: int
-    minor: int
-    micro: int
+    def __init__(self, *nums: Tuple[int]):
+        self.major, self.minor, self.micro = nums
     
-    def get_tuple(self):
-        return self.major, self.minor, self.micro
+    def __new__(cls, *args):
+        return tuple.__new__(cls, args)
     
-    def get_string(self):
-        return f'{self.major}.{self.minor}.{self.micro}'
+    def __str__(self):
+        return '{}.{}.{}'.format(*self)
     
     
-version = _Version(0, 1, 2)
-major = version.major
-minor = version.minor
-micro = version.micro
-vernum = version.get_tuple()
-verstr = version.get_string()
+version = _Version(0, 2, 1)

@@ -19,10 +19,9 @@ __all__ = ['version', 'Window', 'Sprite', 'Background', 'Label', 'Font', 'Canvas
            'Camera', 'ColorModes', 'keys', 'styles', 'Screenshot', 'save_screenshot', 'Player',
            'play_sound', 'Timer', 'timer', 'recorder', 'Scrap', 'scrap_types', 'WebView', 'cs',
            'ClipBoard', 'print_screen', 'vectors', 'Color', 'Entry', 'sleep', 'error', 'random',
-           'InWindow', 'RichText', 'Calendar', 'install_requirements', 'VariableManager', 'Screencap',
-           'CloneManager', 'Bar', 'LBCoordinate', 'LTCoordinate', 'NormalCoordinate', 'chatters',
-           'parse_coordinate', 'Translator', 'languages', 'JSEngines', 'speak', 'SpeakEngine',
-           'ScreencapEncodings']
+           'InWindow', 'RichText', 'Calendar', 'VariableManager', 'Screencap', 'CloneManager',
+           'Bar', 'LBCoordinate', 'LTCoordinate', 'NormalCoordinate', 'chatters', 'parse_coordinate',
+           'Translator', 'languages', 'JSEngines', 'speak', 'SpeakEngine', 'ScreencapEncodings']
 
 import os
 
@@ -45,9 +44,9 @@ import random
 
 import pygame.math as vectors
 
-from easyplayer import version
+from easyplayer.version import version
 
-__version__ = version.version.get_string()
+__version__ = str(version)
 __author__ = 'stripe-python'
 
 from easyplayer.core.window import Window
@@ -72,7 +71,6 @@ from easyplayer.utils.timer import Timer, sleep
 from easyplayer.utils.record import recorder
 from easyplayer.utils.scrap import Scrap, scrap_types
 from easyplayer.utils.color import Color
-from easyplayer.utils.install import install_requirements
 from easyplayer.utils.managers import VariableManager, CloneManager
 from easyplayer.utils.coordinate import LTCoordinate, LBCoordinate, NormalCoordinate, parse_coordinate
 
