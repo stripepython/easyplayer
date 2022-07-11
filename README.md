@@ -14,3 +14,6 @@ pip install -r requirements.txt
 # If the installation fails, it can be installed manually.
 python setup.py install
 ```
+
+## Document
+See [https://stripepython.github.io/easyplayer/](https://stripepython.github.io/easyplayer/)
