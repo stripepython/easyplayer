@@ -1,4 +1,5 @@
 # Easy Player Document
+Easyplayer is a python library that encapsulates the complex API of pygame2 to help users build games faster.
 
 ## Installation
 Use `pip`:
