@@ -14,7 +14,7 @@ python setup.py install
 ```
 
 Easy Player requires:
-```
+```python
 pygame==2.1.2
 click==8.1.3
 opencv-python==4.6.0.66
