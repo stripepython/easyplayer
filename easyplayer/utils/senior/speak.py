@@ -1,3 +1,7 @@
+"""
+Easy Player speaking robot module.
+"""
+
 from typing import Optional, Any
 from dataclasses import dataclass
 
@@ -8,6 +12,12 @@ __all__ = ['speak', 'SpeakEngine']
 
 
 def speak(text: str):
+    """
+    Read a text.
+    
+    :param text: The text.
+    :return: None
+    """
     pyttsx3.speak(text)
     
 
@@ -20,6 +30,11 @@ class SpeakOptions(object):
     name: None
     
     def __init__(self, voice: Voice):
+        """
+        The options of the speaking robot.
+
+        :param voice: pyttsx3.voice.Voice object.
+        """
         self.voice = voice
         
         self.id = voice.id
@@ -31,6 +46,13 @@ class SpeakOptions(object):
 
 class SpeakEngine(object):
     def __init__(self, driver_name: Optional[str] = None, debug: bool = False):
+        """
+        Easy Player speaking robot.
+        
+        :param driver_name: Name of the platform specific driver to use. If
+        None, selects the default driver for the operating system.
+        :param debug: Debugging output enabled or not.
+        """
         self.engine = pyttsx3.init(driver_name, debug)
         
     def __getitem__(self, item: str):
@@ -74,15 +96,57 @@ class SpeakEngine(object):
         return [SpeakOptions(v) for v in self.engine.getProperty('voices')]
         
     def speak(self, text: str):
+        """
+        Read a text.
+        
+        You need to execute SpeakEngine.say function after this function to make sound
+
+        :param text: The text.
+        :return: None
+        """
         self.engine.say(text)
         
     def say(self):
+        """
+        Start reading. This function is required to make sound.
+        
+        Such as:
+        
+        >>> import easyplayer as ep
+        >>> engine = ep.SpeakEngine()
+        >>> engine.speak('Easy Player')
+        >>> engine.speak('Life is short, I use Python.')
+        >>> engine.say()
+        
+        Or:
+        
+        >>> import easyplayer as ep
+        >>> with ep.SpeakEngine() as engine:
+        >>>     engine.speak('Easy Player')
+        >>>     engine.speak('Life is short, I use Python.')
+        
+        :return: None
+        """
         self.engine.runAndWait()
         
     def stop(self):
+        """
+        Stop speaking.
+        
+        :return: None
+        """
         self.engine.stop()
         
     def save_to(self, text: str, file_path: str = 'temp.mp3'):
+        """
+        Save the reading sound to a file.
+        
+        You need ffmpeg running environment.
+        
+        :param text: The text.
+        :param file_path: Save sound file's path.
+        :return: None
+        """
         self.engine.save_to_file(text, file_path)
         
     @property

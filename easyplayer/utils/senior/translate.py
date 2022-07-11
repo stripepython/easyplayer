@@ -2,6 +2,9 @@
 Original module: pybaidu.translate
 Original author: stripe-python
 
+Easy Player translate module.
+
+By requesting Baidu translation.
 """
 
 import os
@@ -21,6 +24,9 @@ from easyplayer.exceptions import EasyPlayerTranslateError
 __all__ = ['languages', 'JSEngines', 'Translator']
 
 class _Languages(object):
+    """
+    Collected all of the translation support language.
+    """
     auto = automatic_detection ='auto'
     chinese = simplified_chinese = 'zh'
     japanese = 'jp'
@@ -113,6 +119,9 @@ class _Languages(object):
     
     
 class JSEngines(object):
+    """
+    Collected all of PyExecJS support JS engines.
+    """
     node = node_js = 'Node'
     pyv8 = 'PyV8'
     java_script_core = 'JavaScriptCore'
@@ -221,6 +230,22 @@ class Translator(object):
                  session: Optional[requests.Session] = None, js_engine: str = JSEngines.node,
                  cookies: Optional[Union[Dict[str, str], str]] = None, user_agent: str = _USER_AGENT,
                  **other_headers: Dict[str, str]):
+        """
+        Easy Player translator.
+        
+        Used to perform translation between specified two languages.
+        
+        :param input_language: Translation source language.
+        :param output_language: Translation target language.
+        :param session: Requests.session object.
+        :param js_engine: JS engine used in JS reverse,
+        It is recommended to use the Node engine after installing Node.JS,
+        JScript engine can be used directly under windows.
+        :param cookies: Stay https://fanyi.baidu.com/ Cookies
+        obtained under the developer tool can be dictionaries or strings.
+        :param user_agent: User Agent of the request header.
+        :param other_headers: Other request header parameters.
+        """
         os.environ['EXECJS_RUNTIME'] = js_engine  # Set the PyExecJS running environment
         self.url = 'https://fanyi.baidu.com/v2transapi'
         
@@ -248,12 +273,24 @@ class Translator(object):
         self._loaded = False
         
     def load(self, text: str):
+        """
+        Load a text.
+        
+        :param text: The text.
+        :return: None
+        """
         self._form['query'] = text
         self._form['sign'] = _get_sign(text)
         self._form['token'] = _get_token(self.session, self.headers, self.cookies)
         self._loaded = True
         
     def get(self, **kwargs):
+        """
+        Translate the text and return result.
+        
+        :param kwargs: Relevant keyword parameters of request.Session.post
+        :return: Translate result.
+        """
         if not self._loaded:
             raise EasyPlayerTranslateError('please load the text first')
         response = self.session.post(self.url, data=self._form, headers=self.headers,

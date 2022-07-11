@@ -15,13 +15,56 @@ Such as:
 
 Easy Player encapsulates pygame2.1, so you do not have to learn the PyGame API.
 """
-__all__ = ['version', 'Window', 'Sprite', 'Background', 'Label', 'Font', 'Canvas', 'Pen', 'Video',
-           'Camera', 'ColorModes', 'keys', 'styles', 'Screenshot', 'save_screenshot', 'Player',
-           'play_sound', 'Timer', 'timer', 'recorder', 'Scrap', 'scrap_types', 'WebView', 'cs',
-           'ClipBoard', 'print_screen', 'vectors', 'Color', 'Entry', 'sleep', 'error', 'random',
-           'InWindow', 'RichText', 'Calendar', 'VariableManager', 'Screencap', 'CloneManager',
-           'Bar', 'LBCoordinate', 'LTCoordinate', 'NormalCoordinate', 'chatters', 'parse_coordinate',
-           'Translator', 'languages', 'JSEngines', 'speak', 'SpeakEngine', 'ScreencapEncodings']
+__all__ = [
+    'version',
+    'Window',
+    'Sprite',
+    'Background',
+    'Label',
+    'Font',
+    'Canvas',
+    'Pen',
+    'Video',
+    'Camera',
+    'ColorModes',
+    'keys',
+    'styles',
+    'Screenshot',
+    'save_screenshot',
+    'Player',
+    'play_sound',
+    'Timer',
+    'timer',
+    'recorder',
+    'WebView',
+    'cs',
+    'ClipBoard',
+    'print_screen',
+    'vectors',
+    'Color',
+    'Entry',
+    'sleep',
+    'random',
+    'InWindow',
+    'RichText',
+    'Calendar',
+    'VariableManager',
+    'Screencap',
+    'CloneManager',
+    'Bar',
+    'LBCoordinate',
+    'LTCoordinate',
+    'NormalCoordinate',
+    'chatters',
+    'parse_coordinate',
+    'Translator',
+    'languages',
+    'JSEngines',
+    'speak',
+    'SpeakEngine',
+    'ScreencapEncodings',
+    'error'
+]
 
 import os
 
@@ -69,7 +112,6 @@ from easyplayer.utils.screencap import Screencap, ScreencapEncodings
 from easyplayer.utils.music import Player, play_sound
 from easyplayer.utils.timer import Timer, sleep
 from easyplayer.utils.record import recorder
-from easyplayer.utils.scrap import Scrap, scrap_types
 from easyplayer.utils.color import Color
 from easyplayer.utils.managers import VariableManager, CloneManager
 from easyplayer.utils.coordinate import LTCoordinate, LBCoordinate, NormalCoordinate, parse_coordinate

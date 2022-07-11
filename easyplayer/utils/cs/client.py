@@ -1,3 +1,7 @@
+"""
+Easy Player CS client module.
+"""
+
 from typing import Union, Any
 import socket
 

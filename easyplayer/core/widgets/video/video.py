@@ -1,3 +1,9 @@
+"""
+Easy Player video widget module.
+
+Warning: this is the test function, it is unstable!
+"""
+
 from typing import Optional, Tuple
 
 import pygame

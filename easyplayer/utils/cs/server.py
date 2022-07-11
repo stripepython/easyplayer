@@ -1,3 +1,7 @@
+"""
+Easy Player CS Server module.
+"""
+
 import socket
 from threading import Thread
 from typing import Callable, Any

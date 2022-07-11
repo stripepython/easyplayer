@@ -16,6 +16,11 @@ __all__ = ['version']
 
 class _Version(tuple):
     def __init__(self, *nums: Tuple[int]):
+        """
+        Easy Player version class.
+        
+        :param nums: Major, minor and micro.
+        """
         self.major, self.minor, self.micro = nums
     
     def __new__(cls, *args):
@@ -25,4 +30,4 @@ class _Version(tuple):
         return '{}.{}.{}'.format(*self)
     
     
-version = _Version(0, 2, 1)
+version = _Version(0, 3, 1)
