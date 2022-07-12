@@ -60,6 +60,48 @@ It passed the test in the above operating environment.
 Although this version is officially released, it still has unstable testing functions.  
 Please use it carefully in actual development.
 
+## Why
+Let's compare `pygame` and `Easy Player` through a simple program.  
+We will display a text with the content of `Hello World` on the window, and let the upper left corner of this text always follow the mouse pointer
+
+- Use `pygame`:
+```python
+import sys
+import pygame
+pygame.init()
+screen = pygame.display.set_mode((640, 480))
+pygame.display.set_caption('Hello World')
+font = pygame.font.Font(None, 26)
+image = font.render('Hello World', True, (0, 0, 0))
+rect = image.get_rect()
+while True:
+    screen.fill((255, 255, 255))
+    screen.blit(image, rect)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit(0)
+    rect.x, rect.y = pygame.mouse.get_pos()
+    pygame.display.update()
+```
+
+- Use `Easy Player`:
+```python
+import easyplayer as ep
+window = ep.Window('Hello')
+label = ep.Label('Hello World')
+@window.when_draw
+def draw():
+    label.pos = window.mouse.pos
+window.show()
+```
+
+Really easy? It will save you a lot of time.  
+In contrast, its disadvantage is that it cannot run two windows at the same time
+
+In the following tutorial, you will understand the meaning and function of each sentence of code.  
+Let's begin!
+
 ## Document
 ### Start Using
 Let's create the first Easy Player project.  
@@ -146,5 +188,37 @@ Please save the following exception quick look-up table, which will help you rea
 | EasyPlayerChatterError | Abnormal function of chat robot | EasyPlayerError |
 
 #### easyplayer.version
-Easy Player version manager module.
+Easy Player version manager module.  
+It provides a `version` variable.
 
+**easyplayer.version.version**  
+It is an instantiated object of class `easyplayer.version._Version`.  
+It is a subclass of `tuple`.
+
+An example of use is shown below:
+```python
+import easyplayer as ep
+if ep.version < (1, 0, 0):  # Judge the version number
+    raise SystemExit('Version wrong.')   # Exit the program when the version number is incompatible
+```
+
+#### easyplayer.core.window
+Easy Player window class module.
+
+##### easyplayer.core.window.Window
+Easy Player window object.
+
+Usage:
+```
+Window(
+    title: Optional[str] = '', 
+    size: Optional[Tuple[int, int]] = (640, 480),
+    icon: Optional[str] = None, 
+    style: StyleType = easyplayer.core.styles.normal, 
+    fps: int = 60,
+    on_center: bool = False, 
+    window_pos: Optional[Tuple[int, int]] = None,
+    vsync: bool = False, 
+    depth: int = 0
+)
+```
