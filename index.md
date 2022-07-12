@@ -15,7 +15,7 @@ python setup.py install
 ```
 
 Easy Player requires:
-```python
+```
 pygame==2.1.2
 click==8.1.3
 opencv-python==4.6.0.66
@@ -123,3 +123,28 @@ This is the command line parameter supported by Easy Player:
 | --install-images | -i | Install mblock picture. See the description of `easyplayer.utils.mblock` for details. |
 | --clear-images | -c | Clear mblock picture. |
 | --uninstall-images | -u | Uninstall mblock picture. |
+
+#### easyplayer.exceptions
+This module integrates all exception classes of Easy Player.  
+Please save the following exception quick look-up table, which will help you read this document.
+
+| Exception | Description | Father |
+| ----- | ----- | ----- |
+| EasyPlayerError | Base Easy Player exception | Exception |
+| EasyPlayerWarning | Easy Player warning | Warning |
+| EasyPlayerSaverError | Window saver error | EasyPlayerError |
+| EasyPlayerModuleError | Module not installed error | EasyPlayerError, ModuleNotFoundError |
+| EasyPlayerOSError | Exception caused by operating system | EasyPlayerError |
+| EasyPlayerHandleError | Some operating systems do not support getting handle operation | EasyPlayerOSError |
+| EasyPlayerWidgetsError | Widget errors | EasyPlayerError |
+| EasyPlayerCanvasError | Canvas widget error | EasyPlayerWidgetsError |
+| EasyPlayerCameraError | Camera widget error | EasyPlayerWidgetsError |
+| EasyPlayerTextTooLongError | Text out of the entry widget exception | EasyPlayerWidgetsError |
+| EasyPlayerOnlyReadError | Global variable manager read-only variable exception | EasyPlayerError |
+| EasyPlayerCoordinateError | Coordinate auxiliary system is abnormal | EasyPlayerError |
+| EasyPlayerTranslateError | Abnormal translation function | EasyPlayerError |
+| EasyPlayerChatterError | Abnormal function of chat robot | EasyPlayerError |
+
+#### easyplayer.version
+Easy Player version manager module.
+
