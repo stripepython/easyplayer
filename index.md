@@ -236,3 +236,130 @@ Parameters:
 | `window_pos` | Position when the window pops up. Specifying this parameter will override the function of the `on_center` parameter | `Optional[Tuple[int, int]]` |
 | `vsync` | Is vsync. For more information, please refer to the documentation of `pygame` | `bool` |
 | `depth` | Window depth. | `int` |
+
+###### easyplayer.core.window.Window.destroy
+Close window and exit this Python program.
+
+Usage:
+```
+Window.destroy(status: int = 0)
+```
+
+- Parameter `status`: Exit status.  
+- Return: `None`  
+- Return type: `None`
+
+###### easyplayer.core.window.Window.update
+Update screen image.
+
+Usage:
+```
+Window.update()
+```
+
+- Return: `None`  
+- Return type: `None`
+
+###### easyplayer.core.window.Window.when_mouse_down
+A decorator to decorate a callback function when mouse down.
+
+Usage:
+```
+Window.when_mouse_down(func: Callable[[], Any])
+```
+Or:
+```
+@Window.when_mouse_down
+def func():
+    pass
+```
+Below with `when_` the first is the event callback function.  
+They will play a great role.
+
+###### easyplayer.core.window.Window.when_mouse_up
+A decorator to decorate a callback function when mouse up.
+
+The usage is the same as above.
+
+###### easyplayer.core.window.Window.when_mouse_move
+A decorator to decorate a callback function when mouse is moving.
+
+The usage is the same as above.
+
+###### easyplayer.core.window.Window.when_key_down
+A decorator to decorate a callback function when key down.
+
+The usage is the same as above.
+
+###### easyplayer.core.window.Window.when_key_up
+A decorator to decorate a callback function when key up.
+
+The usage is the same as above.
+
+###### easyplayer.core.window.Window.when_resize
+A decorator to decorate a callback function when resize window.
+
+The usage is the same as above.
+
+###### easyplayer.core.window.Window.when_active
+A decorator to decorate a callback function when active window.
+
+The usage is the same as above.
+
+###### easyplayer.core.window.Window.when_close
+A decorator to decorate a callback function when close window.  
+Default callback is `Window.destroy(0)`
+
+The usage is the same as above.
+
+###### easyplayer.core.window.Window.show
+Show and update this window.  
+Start main loop.
+
+Like this:
+```python
+import easyplayer as ep
+window = ep.Window()
+if __name__ == '__main__':
+    window.show()
+```
+
+Usage:
+```
+Window.show(escape_quit: bool = False)
+```
+
+- Parameter `escape_quit`: Press ESC key to exit.  
+- Return: `None`  
+- Return type: `None`
+
+###### easyplayer.core.window.Window.event
+Attribute value. Window event.  
+For details, see `easyplayer.core.event.Event`
+
+- Return: Window event.
+- Return type: `easyplayer.core.event.Event`
+
+###### easyplayer.core.window.Window.mouse
+Attribute value. Create a mouse object of this window and return it..  
+For details, see `easyplayer.core.window.Mouse`
+
+- Return: Mouse object of this window.  
+- Return type: `easyplayer.core.window.Mouse`
+
+###### easyplayer.core.window.Window.sprites
+Attribute value. The queue of sprites.
+For details, see `easyplayer.core.saver.SpriteQueue`
+
+- Return: The queue of sprites.  
+- Return type: `easyplayer.core.saver.SpriteQueue`
+
+###### easyplayer.core.window.Window.hwnd
+Attribute value. The handle of this window.  
+Information about the current windowing system.
+
+In some operating systems, getting handle is not supported.
+
+- Return: The handle of this window.
+- Return type: `int`
+- Raise: `EasyPlayerHandleError` when getting window handle is not supported.
