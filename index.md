@@ -97,7 +97,7 @@ window.show()
 ```
 
 Really easy? It will save you a lot of time.  
-In contrast, its disadvantage is that it cannot run two windows at the same time
+In contrast, its disadvantage is that it cannot run two windows at the same time.
 
 In the following tutorial, you will understand the meaning and function of each sentence of code.  
 Let's begin!
@@ -222,3 +222,17 @@ Window(
     depth: int = 0
 )
 ```
+
+Parameters:
+
+| Parameter Name | Effect | Parameter Type |
+| ------ | ------ | ----- |
+| `title` | Window title. | `str` |
+| `size` | Window size. The first term of a two-tuple is width(weight), and the second term is height. | `Optional[Tuple[int, int]]` |
+| `icon` | Window favicon. Icons in PNG and other formats are supported. | `Optional[str]` |
+| `style` | Window style. Refer to the description of `easyplayer.core.styles` for details | `easyplayer.core.styles.StyleType` |
+| `fps` | FPS. | `int` |
+| `on_center` | Is the window in the center of the screen when it pops up. | `bool` |
+| `window_pos` | Position when the window pops up. Specifying this parameter will override the function of the `on_center` parameter | `Optional[Tuple[int, int]]` |
+| `vsync` | Is vsync. For more information, please refer to the documentation of `pygame` | `bool` |
+| `depth` | Window depth. | `int` |
