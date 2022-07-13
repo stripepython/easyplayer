@@ -342,10 +342,10 @@ For details, see `easyplayer.core.event.Event`
 
 ###### easyplayer.core.window.Window.mouse
 Attribute value. Create a mouse object of this window and return it..  
-For details, see `easyplayer.core.window.Mouse`
+For details, see `easyplayer.core.window._Mouse`
 
 - Return: Mouse object of this window.  
-- Return type: `easyplayer.core.window.Mouse`
+- Return type: `easyplayer.core.window._Mouse`
 
 ###### easyplayer.core.window.Window.sprites
 Attribute value. The queue of sprites.
@@ -363,3 +363,98 @@ In some operating systems, getting handle is not supported.
 - Return: The handle of this window.
 - Return type: `int`
 - Raise: `EasyPlayerHandleError` when getting window handle is not supported.
+
+###### easyplayer.core.window.Window.title
+A property. Window title.
+
+For example:
+```python
+import easyplayer as ep
+window = ep.Window()
+print(window.title)  # Get title
+window.title = 'Test'   # Set title
+```
+
+- Type: `str`
+
+###### easyplayer.core.window.Window.size
+Attribute value. Window size. 
+- Return: Window size. The first term of a two-tuple is width(weight), and the second term is height.
+- Return type: `Tuple[int, int]`
+
+###### easyplayer.core.window.Window.fps
+A property. Window FPS.
+
+For example:
+```python
+import easyplayer as ep
+window = ep.Window()
+print(window.fps)  # Get FPS
+window.fps = 15   # Set FPS
+```
+
+- Type: `int`
+
+###### easyplayer.core.window.Window.set_fps
+Set FPS of this window.  
+Usage:
+```
+Window.set_fps(fps: int)
+```
+Same as `window.fps = fps`
+
+- Parameter `fps`: FPS.  
+- Return: `None`  
+- Return type: `None`
+
+###### easyplayer.core.window.Window.add_sprite
+Add a sprite.  
+Usage:
+```
+Window.add_sprite(sprite: Sprite)
+```
+For details, see `easyplayer.core.widgets.sprite.Sprite` and `easyplayer.core.saver.SpriteQueue`
+        
+With `Sprite.pack()` has the same effect.
+
+- Parameter `sprite`: Sprite. Value type is `easyplayer.core.widgets.sprite.Sprite`
+- Return: `None`  
+- Return type: `None`
+
+###### easyplayer.core.window.Window.clear
+Clear this window.
+
+- Return: `None`  
+- Return type: `None`
+
+##### easyplayer.core.window._Mouse
+Easy Player mouse object.
+
+###### easyplayer.core.window._Mouse.pos
+A property. Mouse position.
+
+For example:
+```python
+import easyplayer as ep
+window = ep.Window()
+mouse = window.mouse  # Returns a easyplayer.core.window._Mouse object
+print(mouse.pos)  # Get mouse position
+mouse.pos = 8, 7  # Set mouse position
+```
+
+###### easyplayer.core.window._Mouse.trail
+Attribute value. Get a series of actions of the mouse before this.
+
+Output instance:
+```python
+[(0, 0), (3, 5), (14, 17), (22, 20)]
+```
+
+- Return: Get a series of actions of the mouse before this.
+- Return type: `List[Tuple[int, int]]`
+
+###### easyplayer.core.window._Mouse.show
+Show the cursor.
+
+###### easyplayer.core.window._Mouse.hide
+Hide the cursor.
